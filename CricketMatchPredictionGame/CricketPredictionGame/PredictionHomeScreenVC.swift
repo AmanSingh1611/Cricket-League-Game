@@ -15,7 +15,8 @@ class PredictionHomeScreenVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Cricket League"
-       
+        let leaderBoardImage = UIImage(named: "leaderboard-logo")?.withTintColor(.black, renderingMode: .alwaysOriginal)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: leaderBoardImage, style: .plain, target: self, action: #selector(leaderBoardBtnAction))
         setupHeaderView()
         
         collectionView.delegate = self
@@ -24,7 +25,9 @@ class PredictionHomeScreenVC: UIViewController {
         collectionView.contentInset = .init(top: 10, left: 0, bottom: 10, right: 0)
         
     }
-   
+    @objc private func leaderBoardBtnAction() {
+        
+    }
     private func setupHeaderView() {
         descriptionHeaderView.layer.cornerRadius = 10
         descriptionHeaderView.layer.borderWidth = 0.5
