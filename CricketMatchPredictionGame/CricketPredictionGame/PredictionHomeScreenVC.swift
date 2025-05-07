@@ -38,16 +38,17 @@ class PredictionHomeScreenVC: UIViewController {
         return UICollectionViewCompositionalLayout { sectionIndex, environment in
             
             //item
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(100))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             
             //group
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.40))
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: itemSize.heightDimension)
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-            group.interItemSpacing = .fixed(8)
+            //group.contentInsets = .init(top: 0, leading: 5, bottom: 0, trailing: 5)
             
             //section
             let section = NSCollectionLayoutSection(group: group)
+            section.interGroupSpacing = 10
            
             return section
         }

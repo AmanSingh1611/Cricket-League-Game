@@ -13,8 +13,11 @@ class MatchDescriptionCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        contentView.layer.shadowRadius = 2
+        contentView.layer.shadowOpacity = 0.4
+        contentView.layer.shadowOffset = CGSize(width: 1, height: 1)
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        //contentView.layer.masksToBounds = false
         containerView.layer.cornerRadius = 10
-        containerView.layer.borderWidth = 0.5
-        containerView.layer.borderColor = UIColor.gray.cgColor
     }
 }
